@@ -37,6 +37,7 @@
 /* 初始化蛇的节点和移动方向 */
 -(void)setNodes{
     [self.nodesArr removeAllObjects];
+    self.snakeLength = 5;
     for (int i = _snakeLength; i > 0; i--) {
         CGPoint point = CGPointMake(NODEW * (i + 0.5), NODEH * 0.5);
         LJWNode *node = [LJWNode nodeWithCenterPoint:point];
@@ -48,7 +49,7 @@
 
 //开始
 -(void)start{
-    CGFloat time = 0.2 + _speed * 0.02;
+    CGFloat time = 0.15 + _speed * 0.02;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(move) userInfo:nil repeats:YES];
 }
 
