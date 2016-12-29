@@ -117,7 +117,9 @@
 -(void)gameOver{
     [self.snake pause];
     NSString *str = [NSString stringWithFormat:@"你输了!! 你只有%@分!", self.scoreLabel2.text];
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示!"message:str preferredStyle:UIAlertControllerStyleAlert];
+    
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"重玩" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"我重新玩");
         
@@ -125,15 +127,15 @@
         [self.snake start];
         self.scoreLabel2.text = @"0";
     }];
+    
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"不玩了" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"我不玩了");
         self.startBtn.selected = NO;
         [self.snake setNodes];
         [self refreshDrawing];
         self.scoreLabel2.text = @"0";
-
-        
     }];
+    
     [alert addAction:action1];
     [alert addAction:action2];
     [self presentViewController:alert animated:YES completion:nil];
