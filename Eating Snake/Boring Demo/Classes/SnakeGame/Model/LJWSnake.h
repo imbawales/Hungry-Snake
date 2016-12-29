@@ -24,6 +24,7 @@ typedef enum {
 @protocol LJWSnakeDelegate <NSObject>
 
 -(void)refreshDrawing;
+-(void)eatFood;
 
 @end
 
@@ -37,11 +38,16 @@ typedef enum {
 @property(nonatomic, assign)CGFloat snakeLength;
 
 @property(nonatomic, strong)NSTimer *timer;
-
+/*  蛇的代理, 用来通知控制器刷新界面的 */
 @property(nonatomic,weak)id<LJWSnakeDelegate>snakeDelegate;
+
+@property(nonatomic, strong)UIAlertController *alertVC;
+
 
 +(instancetype)snake;
 -(void)start;
--(void)gameOver;
+-(void)pause;
+-(void)growUp;
+-(void)setNodes;
 
 @end

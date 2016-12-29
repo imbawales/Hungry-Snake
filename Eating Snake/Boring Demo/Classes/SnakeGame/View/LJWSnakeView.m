@@ -22,7 +22,7 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     CGPoint headCenter = CGPointMake(FirstNodeCenter.x, FirstNodeCenter.y);
     [self drawSnakeHeadWithPath:path andPoint:headCenter];
-    [[UIColor colorWithRed:arc4random_uniform(5) green:arc4random_uniform(5) blue:arc4random_uniform(5) alpha:1] set];
+    [[UIColor whiteColor] set];
     [path fill];
     
     //画蛇身
@@ -30,7 +30,7 @@
         CGPoint center = _snake.nodesArr[i].centerPoint;
         CGRect rectangle = CGRectMake(center.x - NODEW * 0.5 , center.y - NODEH * 0.5, NODEW, NODEH);
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rectangle];
-        [[UIColor colorWithRed:arc4random_uniform(3) green:arc4random_uniform(5) blue:arc4random_uniform(15) alpha:1] set];
+        [[UIColor whiteColor] set];
         [path fill];
         
         

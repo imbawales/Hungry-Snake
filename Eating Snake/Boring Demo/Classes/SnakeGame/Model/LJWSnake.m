@@ -11,6 +11,7 @@
 @interface LJWSnake()
 
 @property(nonatomic, assign)CGFloat speed;
+@property(nonatomic, assign)CGPoint lastPoint;
 
 @end
 
@@ -57,8 +58,10 @@
     //取出原蛇头Node的坐标
     CGPoint originHeadCenter = self.nodesArr.firstObject.centerPoint;
     
+    
     //取出蛇尾Node
     LJWNode *lastNode = self.nodesArr.lastObject;
+    self.lastPoint = lastNode.centerPoint;
     
     //更改蛇尾坐标
     switch (self.MoveDirection) {
@@ -83,6 +86,11 @@
     [self.nodesArr removeLastObject];
     [self.nodesArr insertObject:lastNode atIndex:0];
     
+    //吃食物
+    if ([self.snakeDelegate respondsToSelector:@selector(eatFood)]) {
+        [self.snakeDelegate eatFood];
+    }
+    
     //重新绘图
     //要想办法拿到controller
     if ([self.snakeDelegate respondsToSelector:@selector(refreshDrawing)]) {
@@ -90,10 +98,17 @@
     }
 }
 
+
+/*蛇长大*/
+-(void)growUp{
+    LJWNode *node = [LJWNode nodeWithCenterPoint:self.lastPoint];
+    [self.nodesArr addObject:node];
+    self.snakeLength += 1;
+}
+
 /*游戏结束*/
--(void)gameOver{
+-(void)pause{
     [self.timer invalidate];
     self.timer = nil;
-    
 }
 @end

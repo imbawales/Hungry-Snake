@@ -22,15 +22,32 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ib7-B8-Ghe" customClass="LJWSnakeView">
                                         <rect key="frame" x="0.0" y="80" width="375" height="447"/>
-                                        <color key="backgroundColor" red="0.8001589897008976" green="0.82686597804021056" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14610830586342002" green="0.11841769338463572" blue="0.18760016025641024" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-mi-4wL">
+                                        <rect key="frame" x="152" y="30" width="71" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="ajg-u7-oLN">
+                                        <rect key="frame" x="223.5" y="30" width="14.5" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.3196492300297582" blue="0.52410314376771239" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0013439736195051124" blue="0.27201522435897441" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ib7-B8-Ghe" firstAttribute="leading" secondItem="tt5-Sg-OV2" secondAttribute="leading" id="24T-Qe-CCu"/>
                                     <constraint firstAttribute="trailing" secondItem="ib7-B8-Ghe" secondAttribute="trailing" id="2d8-tg-Qr8"/>
+                                    <constraint firstItem="ajg-u7-oLN" firstAttribute="bottom" secondItem="rMW-mi-4wL" secondAttribute="bottom" id="36t-zL-6di"/>
+                                    <constraint firstItem="rMW-mi-4wL" firstAttribute="centerX" secondItem="tt5-Sg-OV2" secondAttribute="centerX" id="7Tv-Hk-xTG"/>
+                                    <constraint firstItem="ajg-u7-oLN" firstAttribute="leading" secondItem="rMW-mi-4wL" secondAttribute="trailing" id="PxU-RM-bSF"/>
                                     <constraint firstAttribute="bottom" secondItem="ib7-B8-Ghe" secondAttribute="bottom" id="QeB-W3-zq5"/>
+                                    <constraint firstItem="ajg-u7-oLN" firstAttribute="top" secondItem="rMW-mi-4wL" secondAttribute="top" id="VSQ-DO-zek"/>
                                     <constraint firstItem="ib7-B8-Ghe" firstAttribute="top" secondItem="tt5-Sg-OV2" secondAttribute="top" constant="80" id="Xlw-Sk-wns"/>
+                                    <constraint firstItem="rMW-mi-4wL" firstAttribute="top" secondItem="tt5-Sg-OV2" secondAttribute="top" constant="30" id="zRT-nt-NSB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hud-XK-A4g" userLabel="controlView">
@@ -88,6 +105,22 @@
                                             <action selector="rightBtnClick:" destination="0he-KR-UG8" eventType="touchUpInside" id="Lqx-ga-1sm"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-5R-8jb">
+                                        <rect key="frame" x="164" y="53" width="46" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lci-qe-ygx"/>
+                                            <constraint firstAttribute="width" constant="46" id="onZ-dk-apC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" red="0.66666666669999997" green="0.31964923000000001" blue="0.5241031438" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected" title="Pause"/>
+                                        <connections>
+                                            <action selector="startBtnClick:" destination="0he-KR-UG8" eventType="touchUpInside" id="6pb-tS-odV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -95,10 +128,12 @@
                                     <constraint firstItem="Lmf-nT-fnE" firstAttribute="centerY" secondItem="hud-XK-A4g" secondAttribute="centerY" id="Gdk-fv-y78"/>
                                     <constraint firstItem="Fc4-Wz-6qB" firstAttribute="leading" secondItem="NCX-w2-GVD" secondAttribute="trailing" constant="8" id="X2o-iv-mxe"/>
                                     <constraint firstItem="NCX-w2-GVD" firstAttribute="centerY" secondItem="hud-XK-A4g" secondAttribute="centerY" id="Y7h-Ny-TAY"/>
+                                    <constraint firstItem="zTh-5R-8jb" firstAttribute="centerX" secondItem="hud-XK-A4g" secondAttribute="centerX" id="YO4-Gk-ulN"/>
                                     <constraint firstItem="Fc4-Wz-6qB" firstAttribute="top" secondItem="hud-XK-A4g" secondAttribute="top" id="f5s-c1-CKc"/>
                                     <constraint firstAttribute="bottom" secondItem="0tL-Gn-KJi" secondAttribute="bottom" id="gI1-06-TT7"/>
                                     <constraint firstItem="Fc4-Wz-6qB" firstAttribute="centerX" secondItem="hud-XK-A4g" secondAttribute="centerX" id="idn-j0-cqy"/>
                                     <constraint firstItem="0tL-Gn-KJi" firstAttribute="centerX" secondItem="hud-XK-A4g" secondAttribute="centerX" id="l36-cN-F5t"/>
+                                    <constraint firstItem="zTh-5R-8jb" firstAttribute="centerY" secondItem="hud-XK-A4g" secondAttribute="centerY" id="r2G-4p-mDU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -116,7 +151,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="ScoreLabel" destination="rMW-mi-4wL" id="hLH-go-J35"/>
+                        <outlet property="scoreLabel2" destination="ajg-u7-oLN" id="l4j-ee-cRH"/>
                         <outlet property="snakeView" destination="ib7-B8-Ghe" id="IOs-e2-Rwe"/>
+                        <outlet property="startBtn" destination="zTh-5R-8jb" id="ctq-bG-BP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRm-kY-S9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
